@@ -85,7 +85,7 @@ class PyPin:
         pass
 
     def create_pin(pinInfo):
-        """Get the account info for a Pinterest user
+        """Create a pin on a board
         pinInfo structure:
              board: '<username>/<board_name>' OR '<board_id>',
              note: 'My note'
