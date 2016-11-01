@@ -1,6 +1,6 @@
 """client script"""
 from pypin import PyPin
 
-client = PyPin('<your access token>')
+API_CLIENT = PyPin('<your access token>')
 
-print client.me()
+print API_CLIENT.get_me()
