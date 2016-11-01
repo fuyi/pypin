@@ -1,6 +1,6 @@
 """client script"""
-from pypin import PinPy
+from pypin import PyPin
 
-client = PinPy('AQQSYiJs2qGTPdu4cJYLgyReGvwsFIMIWXWJs3VDgcHF8cA-hAAAAAA')
+client = PyPin('AQQSYiJs2qGTPdu4cJYLgyReGvwsFIMIWXWJs3VDgcHF8cA-hAAAAAA')
 
 print client.me()

@@ -1,7 +1,7 @@
 import requests
 import json
 
-class PinPy:
+class PyPin:
     """Python client consume Pinterest API"""
     TIMEOUT = 5
 
@@ -13,7 +13,7 @@ class PinPy:
             method:  HTTP method
             params: optional, supply necessary parameters
         """
-        r = getattr(requests, method)(url, timeout=PinPy.TIMEOUT)
+        r = getattr(requests, method)(url, timeout=PyPin.TIMEOUT)
         if r.status_code == 200:
             return r.json()['data']
         else: # TODO: Add more specific error info for each status code
@@ -26,7 +26,7 @@ class PinPy:
         """Get the authenticated user's Pinterest account info"""
         apiEndpoint = 'https://api.pinterest.com/v1/me/'
         requestUrl = apiEndpoint + '?access_token=' + self.accesstoken
-        return PinPy.call(requestUrl)
+        return PyPin.call(requestUrl)
 
     def get_likes():
         """Get the pins that the authenticated user likes"""
