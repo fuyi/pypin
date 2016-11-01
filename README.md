@@ -4,6 +4,12 @@ A simple Python client for Pinterest API
 ## How to use
 
 1. Grab a Pinterest access token from [Access token generator](https://developers.pinterest.com/tools/access_token/)
+2. Clone this package, Install it locally
+```
+git clone git@github.com:fuyi/pypin.git
+cd pypin
+pip install -e .
+```
 2. Import module pypin from your code
 ```
 from pypin import PyPin
