@@ -6,28 +6,32 @@ import requests
 class PyPin(object):
     """Python client consume Pinterest API"""
     TIMEOUT = 5
+    API_HOST = 'https://api.pinterest.com/'
+
+    def __init__(self, accesstoken, version='v1'):
+        self.accesstoken = accesstoken
+        self.api_verson = version
 
     @staticmethod
     def call(url, method='get', params=None):
         """
         API call to Pinterest
-            url: API endpoint with access token attached
-            method:  HTTP method
-            params: optional, supply necessary parameters
+            url: String, API endpoint with access token attached
+            method:  String, HTTP method, get post put delete
+            params: Dict, optional, supply necessary parameters
+            fields: String, optional, expected return fields,
+                will return default fields if not specified
         """
-        print params
-        request = getattr(requests, method)(url, timeout=PyPin.TIMEOUT)
-        if request.status_code == 200:
+        request = getattr(requests, method)(url, timeout=PyPin.TIMEOUT, data=params)
+        print request.json()
+        if request.status_code in [200, 201]:
             return request.json()['data']
         else:
             raise RuntimeError('API request return status code '+str(request.status_code))
 
-    def __init__(self, accesstoken):
-        self.accesstoken = accesstoken
-
     def get_me(self):
         """Get the authenticated user's Pinterest account info"""
-        api_endpoint = 'https://api.pinterest.com/v1/me/'
+        api_endpoint = PyPin.API_HOST + self.api_verson +'/me/'
         request_url = api_endpoint + '?access_token=' + self.accesstoken
         return PyPin.call(request_url)
 
@@ -87,6 +91,16 @@ class PyPin(object):
         """Get the account info for a Pinterest user"""
         pass
 
+    def create_board(self, board_info):
+        """Create a new board
+        parameters:
+             name: 'board name',
+             description: 'Board description, optional'
+        """
+        api_endpoint = PyPin.API_HOST + self.api_verson +'/boards/'
+        request_url = api_endpoint + '?access_token=' + self.accesstoken
+        return PyPin.call(request_url, 'post', board_info)
+
     def create_pin(self, pin_info):
         """Create a pin on a board
         pinInfo structure:
@@ -95,4 +109,6 @@ class PyPin(object):
              link: 'https://www.google.com',
              image_url: 'http://marketingland.com/pinterest-logo-white-1920.png'
         """
-        pass
+        api_endpoint = PyPin.API_HOST + self.api_verson +'/pins/'
+        request_url = api_endpoint + '?access_token=' + self.accesstoken
+        return PyPin.call(request_url, 'post', pin_info)

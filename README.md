@@ -28,6 +28,28 @@ client.me()
 ## Feature TODO List
 
 * ~~Get the authenticated user's Pinterest account info~~
+
+```
+client.me()
+```
+
+* ~~Create a new board~~
+
+```
+client.create_board({'name': '<board name>'})
+```
+
+* ~~Create a pin on a board, only support url, will add image file support soon~~
+
+```
+client.create_pin({
+    'board': '<board name>',
+    'note': '<your note>',
+    'link': '<url to be posted>',
+    'image_url': '<image url to be posted>'
+})
+```
+
 * Get the pins that the authenticated user likes
 * Get the authenticated user's followers
 * Get the boards that the authenticated user follows
@@ -42,4 +64,10 @@ client.me()
 * Get all of authenticated users's pins
 * Get all of authenticated users's boards
 * Get the account info for a Pinterest user
-* Create a pin on a board
+
+
+## Tech TODO List
+
+* Add input data validator
+* Add returned fields
+* Add tests
