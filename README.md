@@ -1,5 +1,5 @@
 # pypin
-A simple Python client for Pinterest API
+A simple Python client for [Pinterest API](https://developers.pinterest.com/docs/api/overview/)
 
 ## How to use
 
