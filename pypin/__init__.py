@@ -85,7 +85,9 @@ class PyPin(object):
 
     def get_boards(self):
         """Get all of authenticated users's boards"""
-        pass
+        api_endpoint = PyPin.API_HOST + self.api_verson +'/me/boards/'
+        request_url = api_endpoint + '?access_token=' + self.accesstoken
+        return PyPin.call(request_url, 'get')
 
     def get_user(self, username):
         """Get the account info for a Pinterest user"""

@@ -10,17 +10,17 @@ git clone git@github.com:fuyi/pypin.git
 cd pypin
 pip install -e .
 ```
-2. Import module pypin from your code
+3. Import module pypin from your code
 ```
 from pypin import PyPin
 ```
 
-3. Instantiate a PyPin object with your access token from step 1
+4. Instantiate a PyPin object with your access token from step 1
 ```
 client = PyPin('<your access token>')
 ```
 
-4. Now you can use this client to interact with Pinterest API
+5. Now you can use this client to interact with Pinterest API
 ```
 client.me()
 ```
@@ -31,6 +31,12 @@ client.me()
 
 ```
 client.me()
+```
+
+* ~~Get all of authenticated users's boards~~
+
+```
+client.get_boards()
 ```
 
 * ~~Create a new board~~
@@ -62,7 +68,6 @@ client.create_pin({
 * Follow an interest
 * Unfollow an interest
 * Get all of authenticated users's pins
-* Get all of authenticated users's boards
 * Get the account info for a Pinterest user
 
 

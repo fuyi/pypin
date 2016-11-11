@@ -5,6 +5,8 @@ API_CLIENT = PyPin('AaCHGJ_asIYl_ii3b_gjG5Z9eVadFIM74OdBtXZDgcHF8cA-hAAAAAA')
 
 print API_CLIENT.get_me()
 
+print API_CLIENT.get_boards()
+
 # print API_CLIENT.create_board({'name': 'test3'})
 
 # print API_CLIENT.create_pin({
