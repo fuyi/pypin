@@ -22,7 +22,7 @@ client = PyPin('<your access token>')
 
 5. Now you can use this client to interact with Pinterest API
 ```
-client.me()
+client.get_me()
 ```
 
 ## Feature TODO List
@@ -30,7 +30,7 @@ client.me()
 * ~~Get the authenticated user's Pinterest account info~~
 
 ```
-client.me()
+client.get_me()
 ```
 
 * ~~Get all of authenticated users's boards~~
