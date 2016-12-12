@@ -35,37 +35,60 @@ class PyPin(object):
         request_url = api_endpoint + '?access_token=' + self.accesstoken
         return PyPin.call(request_url)
 
-    def getlikes(self):
+    def get_likes(self):
         """Get the pins that the authenticated user likes"""
-        pass
+		api_endpoint = PyPin.API_HOST + self.api_verson +'/me/likes/'
+        request_url = api_endpoint + '?access_token=' + self.accesstoken
+        return PyPin.call(request_url)
 
     def get_followers(self):
         """Get the authenticated user's followers"""
-        pass
+        api_endpoint = PyPin.API_HOST + self.api_verson +'/me/followers/'
+        request_url = api_endpoint + '?access_token=' + self.accesstoken
+        return PyPin.call(request_url)
 
-    def get_followed_boards(self):
+    def get_following_boards(self):
         """Get the boards that the authenticated user follows"""
-        pass
+		api_endpoint = PyPin.API_HOST + self.api_verson +'/me/following/boards/'
+        request_url = api_endpoint + '?access_token=' + self.accesstoken
+        return PyPin.call(request_url)        
 
-    def get_followed_users(self):
+    def get_following_users(self):
         """Get the Pinterest users that the authenticated user follows"""
-        pass
+        api_endpoint = PyPin.API_HOST + self.api_verson +'/me/following/users/'
+        request_url = api_endpoint + '?access_token=' + self.accesstoken
+        return PyPin.call(request_url) 
 
-    def get_followed_interests(self):
+    def get_following_interests(self):
         """Get the interests that the authenticated user follows"""
-        pass
+        api_endpoint = PyPin.API_HOST + self.api_verson +'/me/following/interests/'
+        request_url = api_endpoint + '?access_token=' + self.accesstoken
+        return PyPin.call(request_url)
 
-    def follow_user(self, username):
-        """Follow a user"""
-        pass
+    def follow_user(self, user_name):
+        """Follow a user
+		parameters:
+             name: 'user name',
+             description: 'user name'
+		"""
+        api_endpoint = PyPin.API_HOST + self.api_verson +'/me/following/user/'
+        request_url = api_endpoint + '?access_token=' + self.accesstoken
+        return PyPin.call(request_url, 'post', user_name)
 
-    def unfollow_user(self, username):
+
+    def unfollow_user(self, user_name):
         """Unfollow a user"""
         pass
 
     def follow_board(self, board_id):
-        """Follow a board"""
-        pass
+        """Follow a board
+		parameters:
+             name: 'board id',
+             description: 'board name'
+		"""
+        api_endpoint = PyPin.API_HOST + self.api_verson +'/me/following/boards/'
+        request_url = api_endpoint + '?access_token=' + self.accesstoken
+        return PyPin.call(request_url, 'post', board_id)
 
     def unfollow_board(self, board_id):
         """Unfollow a board"""
@@ -85,7 +108,9 @@ class PyPin(object):
 
     def get_boards(self):
         """Get all of authenticated users's boards"""
-        pass
+        api_endpoint = PyPin.API_HOST + self.api_verson +'/me/boards/'
+        request_url = api_endpoint + '?access_token=' + self.accesstoken
+        return PyPin.call(request_url, 'get')
 
     def get_user(self, username):
         """Get the account info for a Pinterest user"""
