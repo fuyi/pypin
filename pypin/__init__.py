@@ -2,6 +2,7 @@
 
 import json
 import requests
+import urllib.request
 
 class PyPin(object):
     """Python client consume Pinterest API"""
@@ -23,7 +24,7 @@ class PyPin(object):
                 will return default fields if not specified
         """
         request = getattr(requests, method)(url, timeout=PyPin.TIMEOUT, data=params)
-        print request.json()
+        print (request.json())
         if request.status_code in [200, 201]:
             return request.json()['data']
         else:
@@ -37,7 +38,7 @@ class PyPin(object):
 
     def get_likes(self):
         """Get the pins that the authenticated user likes"""
-		api_endpoint = PyPin.API_HOST + self.api_verson +'/me/likes/'
+        api_endpoint = PyPin.API_HOST + self.api_verson +'/me/likes/'
         request_url = api_endpoint + '?access_token=' + self.accesstoken
         return PyPin.call(request_url)
 
@@ -49,7 +50,7 @@ class PyPin(object):
 
     def get_following_boards(self):
         """Get the boards that the authenticated user follows"""
-		api_endpoint = PyPin.API_HOST + self.api_verson +'/me/following/boards/'
+        api_endpoint = PyPin.API_HOST + self.api_verson +'/me/following/boards/'
         request_url = api_endpoint + '?access_token=' + self.accesstoken
         return PyPin.call(request_url)        
 
