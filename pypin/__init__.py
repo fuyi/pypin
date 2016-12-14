@@ -100,7 +100,7 @@ class PyPin(object):
     def unfollow_board(self, board_id):
         """Unfollow a board
 		parameters:
-             name: 'board id',
+             name: 'board_id',
              description: 'board name'
 		"""
         api_endpoint = PyPin.API_HOST + self.api_verson +'/me/following/boards/'
