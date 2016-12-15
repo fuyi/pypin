@@ -24,7 +24,7 @@ class PyPin(object):
                 will return default fields if not specified
         """
         request = getattr(requests, method)(url, timeout=PyPin.TIMEOUT, data=params)
-        print (request.json())
+        # print (request.json())
         if request.status_code in [200, 201]:
             return request.json()['data']
         else:

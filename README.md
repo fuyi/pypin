@@ -1,6 +1,8 @@
 # pypin
 A simple Python client for <a href="https://developers.pinterest.com/docs/api/overview/" target="_blank">Pinterest API</a>
 
+Note:  Support python 3.0 +
+
 ## How to use
 
 1. Grab a Pinterest access token from [Access token generator](https://developers.pinterest.com/tools/access_token/)
