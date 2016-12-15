@@ -1,5 +1,5 @@
 # pypin
-A simple Python client for [Pinterest API](https://developers.pinterest.com/docs/api/overview/)
+A simple Python client for <a href="https://developers.pinterest.com/docs/api/overview/" target="_blank">Pinterest API</a>
 
 ## How to use
 
@@ -27,25 +27,25 @@ client.get_me()
 
 ## Feature TODO List
 
-* ~~Get the authenticated user's Pinterest account info~~
+* Get the authenticated user's Pinterest account info
 
 ```
 client.get_me()
 ```
 
-* ~~Get all of authenticated users's boards~~
+* Get all of authenticated users's boards
 
 ```
 client.get_boards()
 ```
 
-* ~~Create a new board~~
+* Create a new board
 
 ```
 client.create_board({'name': '<board name>'})
 ```
 
-* ~~Create a pin on a board, only support url, will add image file support soon~~
+* Create a pin on a board, only support url, will add local image file support soon
 
 ```
 client.create_pin({
@@ -57,22 +57,85 @@ client.create_pin({
 ```
 
 * Get the pins that the authenticated user likes
+
+```
+client.get_likes()
+```
+
 * Get the authenticated user's followers
+
+```
+client.get_followers()
+```
+
 * Get the boards that the authenticated user follows
+
+```
+client.get_following_boards()
+```
+
 * Get the Pinterest users that the authenticated user follows
+
+```
+client.get_following_users()
+```
+
 * Get the interests that the authenticated user follows
+
+```
+client.get_following_interests()
+```
+
 * Follow a user
+
+```
+client.follow_user(user_name)
+```
+
 * Unfollow a user
+
+```
+client.unfollow_user(user_name)
+```
+
 * Follow a board
+
+
+```
+client.follow_board(board_id)
+```
+
 * Unfollow a board
+
+```
+client.unfollow_board(board_id)
+```
+
 * Follow an interest
+
+```
+client.follow_interest(interest_id)
+```
+
 * Unfollow an interest
+
+```
+client.unfollow_interest(interst_id)
+```
+
 * Get all of authenticated users's pins
+
+```
+client.get_pins()
+```
+
 * Get the account info for a Pinterest user
 
+TODO
 
 ## Tech TODO List
 
 * Add input data validator
 * Add returned fields
+* Add model layer
 * Add tests
