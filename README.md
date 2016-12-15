@@ -111,18 +111,6 @@ client.follow_board(board_id)
 client.unfollow_board(board_id)
 ```
 
-* Follow an interest
-
-```
-client.follow_interest(interest_id)
-```
-
-* Unfollow an interest
-
-```
-client.unfollow_interest(interst_id)
-```
-
 * Get all of authenticated users's pins
 
 ```
