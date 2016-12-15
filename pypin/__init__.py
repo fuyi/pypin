@@ -74,7 +74,7 @@ class PyPin(object):
 		"""
         api_endpoint = PyPin.API_HOST + self.api_verson +'/me/following/users/'
         request_url = api_endpoint + '?access_token=' + self.accesstoken
-        return PyPin.call(request_url, 'post', user_name)
+        return PyPin.call(request_url, 'post', { 'user': user_name })
 
 
     def unfollow_user(self, user_name):
@@ -83,9 +83,9 @@ class PyPin(object):
              name: 'user_name',
              description: 'user name'
 		"""
-        api_endpoint = PyPin.API_HOST + self.api_verson +'/me/following/users/'
+        api_endpoint = PyPin.API_HOST + self.api_verson +'/me/following/users/' + user_name
         request_url = api_endpoint + '?access_token=' + self.accesstoken
-        return PyPin.call(request_url, 'delete', user_name)
+        return PyPin.call(request_url, 'delete')
 
     def follow_board(self, board_id):
         """Follow a board
