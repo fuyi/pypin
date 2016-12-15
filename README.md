@@ -121,6 +121,7 @@ TODO
 
 ## Tech TODO List
 
+* Python2.7 compatibility
 * Add input data validator
 * Add returned fields
 * Add model layer
