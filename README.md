@@ -129,8 +129,6 @@ client.unfollow_interest(interst_id)
 client.get_pins()
 ```
 
-* Get the account info for a Pinterest user
-
 TODO
 
 ## Tech TODO List
