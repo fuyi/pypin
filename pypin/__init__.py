@@ -95,7 +95,7 @@ class PyPin(object):
 		"""
         api_endpoint = PyPin.API_HOST + self.api_verson +'/me/following/boards/'
         request_url = api_endpoint + '?access_token=' + self.accesstoken
-        return PyPin.call(request_url, 'post', board_id)
+        return PyPin.call(request_url, 'post', { 'board': board_id })
 
     def unfollow_board(self, board_id):
         """Unfollow a board
