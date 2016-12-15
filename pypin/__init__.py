@@ -24,7 +24,7 @@ class PyPin(object):
                 will return default fields if not specified
         """
         request = getattr(requests, method)(url, timeout=PyPin.TIMEOUT, data=params)
-        print (request.json())
+        # print (request.json())
         if request.status_code in [200, 201]:
             return request.json()['data']
         else:
@@ -74,7 +74,7 @@ class PyPin(object):
 		"""
         api_endpoint = PyPin.API_HOST + self.api_verson +'/me/following/users/'
         request_url = api_endpoint + '?access_token=' + self.accesstoken
-        return PyPin.call(request_url, 'post', user_name)
+        return PyPin.call(request_url, 'post', { 'user': user_name })
 
 
     def unfollow_user(self, user_name):
@@ -83,9 +83,9 @@ class PyPin(object):
              name: 'user_name',
              description: 'user name'
 		"""
-        api_endpoint = PyPin.API_HOST + self.api_verson +'/me/following/users/'
+        api_endpoint = PyPin.API_HOST + self.api_verson +'/me/following/users/' + user_name
         request_url = api_endpoint + '?access_token=' + self.accesstoken
-        return PyPin.call(request_url, 'delete', user_name)
+        return PyPin.call(request_url, 'delete')
 
     def follow_board(self, board_id):
         """Follow a board
@@ -95,7 +95,7 @@ class PyPin(object):
 		"""
         api_endpoint = PyPin.API_HOST + self.api_verson +'/me/following/boards/'
         request_url = api_endpoint + '?access_token=' + self.accesstoken
-        return PyPin.call(request_url, 'post', board_id)
+        return PyPin.call(request_url, 'post', { 'board': board_id })
 
     def unfollow_board(self, board_id):
         """Unfollow a board
@@ -106,26 +106,6 @@ class PyPin(object):
         api_endpoint = PyPin.API_HOST + self.api_verson +'/me/following/boards/' + board_id
         request_url = api_endpoint + '?access_token=' + self.accesstoken
         return PyPin.call(request_url, 'delete')
-
-    def follow_interest(self, interest_id):
-        """Follow an interest
-		parameters:
-             name: 'interest_id',
-             description: 'interest name'
-		"""
-        api_endpoint = PyPin.API_HOST + self.api_verson +'/me/following/interests/'
-        request_url = api_endpoint + '?access_token=' + self.accesstoken
-        return PyPin.call(request_url, 'post', interest_id)
-
-    def unfollow_interest(self, interest_id):
-        """Unfollow an interest
-		parameters:
-             name: 'interest_id',
-             description: 'interest name'
-		"""
-        api_endpoint = PyPin.API_HOST + self.api_verson +'/me/following/interests/'
-        request_url = api_endpoint + '?access_token=' + self.accesstoken
-        return PyPin.call(request_url, 'delete', interest_id)
 
     def get_pins(self):
         """Get all of authenticated users's pins"""
